@@ -27,7 +27,6 @@
     --radius: 8px;
     --shadow-card: 0 2px 4px rgba(0, 0, 0, 0.25);
 
-
     --font-heading: "Ubuntu", sans-serif;
     --font-body: "Lato", sans-serif;
 
@@ -48,8 +47,12 @@ html {
 
 body {
     font-family: var(--font-body);
-
     height: 100vh;
+}
+
+.wrapper {
+    margin: 0 auto;
+    max-width: 80%;
 }
 
 /* navbar */
@@ -62,25 +65,16 @@ body {
         color: var(--white);
         display: flex;
         align-items: center;
-        margin: 0 5rem;
         padding: 0.5rem;
-
     }
 
     &__title {
         font-size: 2rem;
-
         font-weight: 700;
         display: inline;
         font-family: var(--font-heading);
     }
-
-
 }
-
-
-
-
 
 .main {
     background-color: var(--primary-lightest);
@@ -89,21 +83,17 @@ body {
         color: var(--primary-dark);
         font-size: 3rem;
         font-family: var(--font-heading);
-        margin: 1rem 5rem;
+        margin: 1rem 0;
     }
 
     &__content {
-
         display: flex;
         padding: 1rem;
         margin: 0 auto;
         display: flex;
         flex-wrap: wrap;
     }
-
 }
-
-
 
 /* Components */
 
@@ -119,19 +109,18 @@ body {
     border-radius: var(--radius);
     font-size: 0.9rem;
     padding: 2rem 4rem;
-    margin: 2rem 5rem;
+    margin: 2rem 0;
 
     &__heading {
-        font-size: 2.5;
-
-        margin: 0;
+        border-bottom: 1px solid var(--grey-light);
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
         width: 100%;
         color: var(--primary-darkest);
         font-family: var(--font-heading);
     }
 }
-
-
 
 /* inputs */
 .multi-input-container {
@@ -139,7 +128,6 @@ body {
     width: 100%;
     flex-wrap: wrap;
 }
-
 
 .inputs {
     width: 100%;
@@ -150,7 +138,6 @@ body {
     position: relative;
     height: 80%;
 }
-
 
 .input {
     &__container {
@@ -166,8 +153,6 @@ body {
         overflow: auto;
         display: inline-block;
         flex: 1 1;
-
-        /* border: 1px solid red; */
     }
 
     &__container--contribution,
@@ -235,13 +220,7 @@ body {
         color: var(--grey);
         outline: none;
     }
-
 }
-
-
-
-
-
 
 .btn {
     display: flex;
@@ -249,7 +228,7 @@ body {
     background-color: var(--primary);
     font-size: 2rem;
     color: white;
-    width: 60%;
+    width: 18rem;
     display: relative;
     margin: 1rem auto;
     padding: 1rem;
@@ -261,16 +240,12 @@ body {
     box-shadow: var(--shadow-card);
     font-family: var(--font-heading);
 
-
     &:hover {
         background-color: var(--secondary);
         transform: translatey(-1px) scale(1.05);
         transition: all linear 0.2s;
     }
-
 }
-
-
 
 .taxable-income {
     font-size: 1.5rem;
@@ -296,7 +271,6 @@ body {
     text-align: center;
     vertical-align: center;
     position: relative;
-
     padding: 0.5rem;
     transform: translatey(-20px);
     transition: transform linear 0.3s;
@@ -319,7 +293,6 @@ body {
         padding: 0.2rem;
         color: var(--primary);
         font-size: 1.5rem;
-        /* border: 1px red solid; */
     }
 
     &__text {
@@ -339,22 +312,13 @@ body {
     &__text--negative {
         color: var(--secondary-dark);
     }
-
-
-
 }
-
-
 
 .chart-container {
     position: relative;
     padding: 1rem;
     width: 100%;
 }
-
-/* .outcome__container:last-of-type {
-  margin: 0;
-} */
 
 #myChart {}
 
