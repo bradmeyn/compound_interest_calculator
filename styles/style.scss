@@ -24,7 +24,7 @@
     --grey-dark: #949494;
     --grey-darkest: #5d5d5d;
 
-    --radius: 8px;
+    --radius: 2px;
     --shadow-card: 0 2px 4px rgba(0, 0, 0, 0.25);
 
     --font-heading: "Ubuntu", sans-serif;
@@ -77,22 +77,16 @@ body {
 }
 
 .main {
-    background-color: var(--primary-lightest);
+
 
     &__heading {
         color: var(--primary-dark);
         font-size: 3rem;
         font-family: var(--font-heading);
-        margin: 1rem 0;
+
     }
 
-    &__content {
-        display: flex;
-        padding: 1rem;
-        margin: 0 auto;
-        display: flex;
-        flex-wrap: wrap;
-    }
+
 }
 
 /* Components */
@@ -100,22 +94,25 @@ body {
 .components {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+
 }
 
 .component {
-    background-color: var(--white);
-    box-shadow: var(--shadow-card);
-    border-radius: var(--radius);
+    background-color: var(--grey-light);
     font-size: 0.9rem;
-    padding: 2rem 4rem;
-    margin: 2rem 0;
+    padding: 2rem;
+
+    &--inputs {}
+
+    &--results {
+        margin-top: 2rem;
+        background-color: var(--white);
+    }
 
     &__heading {
         border-bottom: 1px solid var(--grey-light);
         font-size: 2.5rem;
-        margin-bottom: 2rem;
-        padding-bottom: 2rem;
+        margin-bottom: 1rem;
         width: 100%;
         color: var(--primary-darkest);
         font-family: var(--font-heading);
@@ -123,11 +120,7 @@ body {
 }
 
 /* inputs */
-.multi-input-container {
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-}
+
 
 .inputs {
     width: 100%;
@@ -142,65 +135,55 @@ body {
 .input {
     &__container {
         position: relative;
-        padding: 1rem;
+        margin-top: 2rem;
         overflow: auto;
         width: 100%;
     }
 
-    &__container--contribution {
-        position: relative;
-        padding: 1rem;
-        overflow: auto;
-        display: inline-block;
-        flex: 1 1;
-    }
 
-    &__container--contribution,
-    &__container--percentage,
-    &__container--frequency,
-    &__container--years {
-        padding: 1rem;
-        display: inline-block;
-        flex: 1 1 5rem;
-    }
 
     &__box {
         display: block;
         border-radius: var(--radius);
-        margin-top: 0.5rem;
+        margin-top: 1rem;
         padding: 1rem 0 1rem 2rem;
         font-size: 1.75rem;
         width: 100%;
         border: none;
-        background-color: var(--grey-lightest);
+        background-color: var(--white);
         color: var(--primary-dark);
+
+        &--frequency {
+            display: block;
+            border-radius: var(--radius);
+            margin-top: 0.5rem;
+            padding: 1rem;
+            font-size: 1.75rem;
+            width: 100%;
+            border: none;
+            background-color: var(--grey-lightest);
+            color: var(--primary-dark);
+        }
+
+        &--percentage {
+            display: block;
+            border-radius: var(--radius);
+            margin-top: 0.5rem;
+            padding: 1rem 0 1rem 2rem;
+            font-size: 1.75rem;
+            width: 100%;
+            border: none;
+            background-color: var(--grey-lightest);
+            color: var(--primary-dark);
+        }
+
+
     }
 
-    &__box--frequency {
-        display: block;
-        border-radius: var(--radius);
-        margin-top: 0.5rem;
-        padding: 1rem;
-        font-size: 1.75rem;
-        width: 100%;
-        border: none;
-        background-color: var(--grey-lightest);
-        color: var(--primary-dark);
-    }
 
-    &__box--percentage {
-        display: block;
-        border-radius: var(--radius);
-        margin-top: 0.5rem;
-        padding: 1rem 0 1rem 2rem;
-        font-size: 1.75rem;
-        width: 100%;
-        border: none;
-        background-color: var(--grey-lightest);
-        color: var(--primary-dark);
-    }
 
     &__label {
+
         font-size: 1.5rem;
         font-family: var(--font-heading);
         font-weight: 600;
@@ -228,9 +211,9 @@ body {
     background-color: var(--primary);
     font-size: 2rem;
     color: white;
-    width: 18rem;
+    width: 100%;
     display: relative;
-    margin: 1rem auto;
+    margin-top: 2rem;
     padding: 1rem;
     border-radius: var(--radius);
     display: flex;

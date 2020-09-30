@@ -17,7 +17,7 @@
   --grey-slate: #434d56;
   --grey-dark: #949494;
   --grey-darkest: #5d5d5d;
-  --radius: 8px;
+  --radius: 2px;
   --shadow-card: 0 2px 4px rgba(0, 0, 0, 0.25);
   --font-heading: "Ubuntu", sans-serif;
   --font-body: "Lato", sans-serif;
@@ -72,26 +72,10 @@ body {
   font-family: var(--font-heading);
 }
 
-.main {
-  background-color: var(--primary-lightest);
-}
-
 .main__heading {
   color: var(--primary-dark);
   font-size: 3rem;
   font-family: var(--font-heading);
-  margin: 1rem 0;
-}
-
-.main__content {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  padding: 1rem;
-  margin: 0 auto;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
 }
 
 /* Components */
@@ -102,40 +86,29 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
 }
 
 .component {
-  background-color: var(--white);
-  -webkit-box-shadow: var(--shadow-card);
-          box-shadow: var(--shadow-card);
-  border-radius: var(--radius);
+  background-color: var(--grey-light);
   font-size: 0.9rem;
-  padding: 2rem 4rem;
-  margin: 2rem 0;
+  padding: 2rem;
+}
+
+.component--results {
+  margin-top: 2rem;
+  background-color: var(--white);
 }
 
 .component__heading {
   border-bottom: 1px solid var(--grey-light);
   font-size: 2.5rem;
-  margin-bottom: 2rem;
-  padding-bottom: 2rem;
+  margin-bottom: 1rem;
   width: 100%;
   color: var(--primary-darkest);
   font-family: var(--font-heading);
 }
 
 /* inputs */
-.multi-input-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-
 .inputs {
   width: 100%;
   display: -webkit-box;
@@ -155,38 +128,20 @@ body {
 
 .input__container {
   position: relative;
-  padding: 1rem;
+  margin-top: 2rem;
   overflow: auto;
   width: 100%;
-}
-
-.input__container--contribution {
-  position: relative;
-  padding: 1rem;
-  overflow: auto;
-  display: inline-block;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1;
-          flex: 1 1;
-}
-
-.input__container--contribution, .input__container--percentage, .input__container--frequency, .input__container--years {
-  padding: 1rem;
-  display: inline-block;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 5rem;
-          flex: 1 1 5rem;
 }
 
 .input__box {
   display: block;
   border-radius: var(--radius);
-  margin-top: 0.5rem;
+  margin-top: 1rem;
   padding: 1rem 0 1rem 2rem;
   font-size: 1.75rem;
   width: 100%;
   border: none;
-  background-color: var(--grey-lightest);
+  background-color: var(--white);
   color: var(--primary-dark);
 }
 
@@ -255,9 +210,9 @@ body {
   background-color: var(--primary);
   font-size: 2rem;
   color: white;
-  width: 18rem;
+  width: 100%;
   display: relative;
-  margin: 1rem auto;
+  margin-top: 2rem;
   padding: 1rem;
   border-radius: var(--radius);
   display: flex;
