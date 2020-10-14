@@ -36,7 +36,7 @@
 
 
 
-        <div class="component component--inputs">
+        <section class="component component--inputs">
           <h2 class="component__heading">Details</h2>
 
           <div class="inputs">
@@ -94,54 +94,86 @@
 
 
           <button class="btn">Compound!</button>
-        </div>
+        </section>
 
 
 
 
 
+
+
+        <section class="component component--results">
+          <h2 class="component__heading">Result<span id="yearsOutcome"></span></h2>
+          <div class="outcomes">
+            <div class="outcome__chart">
+              <canvas id="myChart"></canvas>
+            </div>
+            <div class="outcome outcome--value">
+              <h3 class="outcome__title--value">Total Value</h3>
+
+              <div class="outcome__text--value" id="valueOutcome">$0</div>
+            </div>
+
+            <div class="outcome outcome--earnings">
+              <h3 class="outcome__title">Total Earnings</h3>
+
+              <div class="outcome__text" id="earnings">$0</div>
+            </div>
+
+            <div class="outcome outcome--contributions">
+              <h3 class="outcome__title">Total Contributions</h3>
+
+              <div class="outcome__text" id="contributions">$0</div>
+            </div>
+
+
+          </div>
+
+
+        </section>
+        <section class="component component--details">
+          
+          <h2 class="component__heading">Details</h2>
+
+            <table class="table" id="table">
+              <thead>
+                <tr class="table__row">
+                  <th class="table__head">Year</th>
+                  <th class="table__head">Starting Amount</th>
+                  <th class="table__head">Interest Earned</th>
+                  <th class="table__head">Contributions</th>
+                  <th class="table__head">Ending Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="table__item">1</td>
+                  <td class="table__item">$50,000</td>
+                  <td class="table__item">$1,000</td>
+                  <td class="table__item">$60,000</td>
+                  <td class="table__item">$101,000</td>
+                </tr>
+                <tr>
+                  <td class="table__item">1</td>
+                  <td class="table__item">$50,000</td>
+                  <td class="table__item">$1,000</td>
+                  <td class="table__item">$60,000</td>
+                  <td class="table__item">$101,000</td>
+                </tr>
+              </tbody>
+
+            </table>
+
+        </section>
+
+        
       </div>
-
-      <div class="component component--results">
-        <h2 class="component__heading">Result<span id="yearsOutcome"></span></h2>
-        <div class="outcomes">
-          <div class="outcome chart-container">
-            <canvas id="myChart"></canvas>
-          </div>
-          <div class="outcome outcome--value">
-            <h3 class="outcome__title">Value</h3>
-
-            <div class="outcome__text" id="valueOutcome">$0</div>
-          </div>
-
-          <div class="outcome outcome--earnings">
-            <h3 class="outcome__title">Total Earnings</h3>
-
-            <div class="outcome__text" id="earnings">$0</div>
-          </div>
-
-          <div class="outcome outcome--contributions">
-            <h3 class="outcome__title">Total Contributions</h3>
-
-            <div class="outcome__text" id="contributions">$0</div>
-          </div>
-
-
-        </div>
-
-
-      </div>
-
-
-
-
-  </div>
   </div>
 
   </div>
 
 
-  </div>
+ 
 
 
 
@@ -154,12 +186,14 @@
 
   </main>
   <footer class="footer">
+    <div class="wrapper">
 
+      <div class="footer__container">
+        <div class="footer__header">header</div>
+      </div>
 
-    <div class="footer-container">
-      <div class="footer-item">Fintools &trade; 2020</div>
-      <div class="footer-item">Brad Meyn</div>
     </div>
+
   </footer>
   </div>
 

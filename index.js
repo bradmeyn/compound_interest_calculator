@@ -10,9 +10,11 @@ let valueOutcome = document.querySelector("#valueOutcome");
 let earningsOutcome = document.querySelector("#earnings");
 let contributionsOutcome = document.querySelector("#contributions");
 
-// let periods = [];
-// let values = [];
-// let year = 1;
+const table =  document.getElementById("table");
+
+
+
+
 
 let toNumber = function (currency) {
   return parseFloat(currency.replace("$", "").replace(",", ""));
@@ -138,6 +140,8 @@ let compound = function () {
   let x = 0;
 
   while (x < n) {
+
+   
     initial.push(p);
 
     totalContributions = c * f + totalContributions;
@@ -146,6 +150,27 @@ let compound = function () {
 
     totalEarnings = totalEarnings + (p + totalContributions) * i;
     earnings.push(totalEarnings);
+
+    let row = table.insertRow(-1);
+    let yearCol = row.insertCell(0);
+    let startCol = row.insertCell(1);
+    let intCol = row.insertCell(2);
+    let contCol = row.insertCell(3);
+    let endCol = row.insertCell(4);
+     
+    yearCol.innerHTML = year;
+    startCol.innerHTML = formatCurrency(p);
+    intCol.innerHTML = totalEarnings;
+    contCol.innerHTML = c;
+    endCol.innerHTML = p;
+
+    yearCol.classList.add("table__item");
+    startCol.classList.add("table__item");
+    intCol.classList.add("table__item");
+    contCol.classList.add("table__item");
+    endCol.classList.add("table__item");
+
+
 
     total.push(totalEarnings + totalContributions + p);
     console.log(total);
