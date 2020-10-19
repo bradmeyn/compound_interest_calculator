@@ -1,12 +1,18 @@
-let value = document.querySelector("#value");
+
+//input DOM selectors
+let startingAmount = document.querySelector("#startingAmount");
 let contribution = document.querySelector("#contribution");
-
-let years = document.querySelector("#years");
+let year = document.querySelector("#years");
 let interest = document.querySelector("#interest");
-
 let frequency = document.querySelector("#frequency");
+let button = document.querySelector(".btn");
 
-let valueOutcome = document.querySelector("#valueOutcome");
+
+
+
+//output DOM selectors
+let valueOutcome = document.querySelector("#totalValue");
+let initialInvestment = document.querySelector("#initialInvestment");
 let earningsOutcome = document.querySelector("#earnings");
 let contributionsOutcome = document.querySelector("#contributions");
 
@@ -35,16 +41,150 @@ interest.addEventListener("change", () => {
   interest.value = `${interest.value}%`;
 });
 
-var ctx = document.getElementById("myChart");
+
+
+
+
+
+
+let compound = function () {
+//remove existing rows from details section
+for (let i = document.querySelector(".table").rows.length; i > 2; i--) {
+document.querySelector(".table").deleteRow(i-1);
+}
+
+// rows = document.querySelectorAll("tr")
+
+  let years = [];
+  let initial = [];
+
+  let contributions = [];
+  let totalContributions = 0;
+
+  let earnings = [];
+  let total = [];
+  let totalEarnings = 0;
+
+  let currentYear = 1;
+
+  let p = toNumber(startingAmount.value);
+  // console.log(p);
+
+  let c = toNumber(contribution.value);
+  // console.log(c);
+
+  let n = +year.value;
+  // console.log(n);
+
+  let i = (parseInt(interest.value.replace("%", "")) / 100).toFixed(2);
+  // console.log(i);
+
+  let f = parseInt(frequency.value);
+
+  let x = 0;
+
+  let totalValue = p;
+  let interestEarned = 0;
+  
+
+
+  while (x < n) {
+
+    //populate table
+    let row = table.insertRow(-1);
+    let yearCol = row.insertCell(0);
+    let startCol = row.insertCell(1);
+    let intCol = row.insertCell(2);
+    let contCol = row.insertCell(3);
+    let endCol = row.insertCell(4);
+
+    //style rows
+    yearCol.classList.add("table__item");
+    startCol.classList.add("table__item");
+    intCol.classList.add("table__item");
+    contCol.classList.add("table__item");
+    endCol.classList.add("table__item");
+
+
+    //Push initial value to the chart
+    initial.push(p);
+     
+    //Column 1: Year
+    yearCol.innerHTML = currentYear;
+
+    //Column 2: Starting Amount
+    startCol.innerHTML = formatCurrency(totalValue.toFixed(2));
+
+    interestEarned = parseFloat((totalValue * i).toFixed(2));
+
+    //Column 3: Interest Earned
+    intCol.innerHTML = formatCurrency(interestEarned);
+    totalEarnings = parseFloat((interestEarned + totalEarnings).toFixed(2));
+    console.log("earnings", totalEarnings);
+
+    totalValue = parseFloat((totalValue + (totalValue * i) + (c * f)).toFixed(2));
+
+    console.log("total", totalValue);
+
+    //Column 4: Contribution
+    contCol.innerHTML = formatCurrency(c * f);
+
+    //Column 5: End Amount
+    endCol.innerHTML = formatCurrency(totalValue.toFixed(2));
+
+    //Push contribution total to chart
+    totalContributions = c * f + totalContributions;
+
+
+    earnings.push(totalEarnings);
+ 
+    contributions.push(totalContributions);
+
+    total.push(parseFloat((totalEarnings + totalContributions + p).toFixed(2)));
+    
+    years.push(currentYear);
+    currentYear++;
+    x++;
+  }
+
+
+  document.querySelector("#yearsOutcome").innerHTML = ` after ${n} years`;
+
+  valueOutcome.innerHTML = formatCurrency(totalValue.toFixed(0));
+  earningsOutcome.innerHTML = formatCurrency(totalEarnings.toFixed(0));
+  contributionsOutcome.innerHTML = formatCurrency(totalContributions);
+  initialInvestment.innerHTML = formatCurrency(p);
+
+  chart.data.datasets[0].data = initial;
+  chart.data.datasets[1].data = contributions;
+  chart.data.datasets[2].data = earnings;
+  chart.data.labels = years;
+  chart.update();
+};
+
+button.addEventListener("click", compound);
+
+
+
+
+
+//bar chart
+
+let ctx = document.getElementById("myChart");
 Chart.defaults.global.defaultFontColor = "#2f394b";
 Chart.defaults.global.defaultFontFamily = "Helvetica";
 Chart.defaults.global.defaultFontStyle = "bold";
+
 Chart.scaleService.updateScaleDefaults("linear", {
   ticks: {
     min: 0,
   },
 });
-var chart = new Chart(ctx, {
+
+
+
+
+let chart = new Chart(ctx, {
   // The type of chart we want to create
 
   type: "bar",
@@ -77,12 +217,32 @@ var chart = new Chart(ctx, {
 
   // Configuration options go here
   options: {
+    responsive: false,
+    maintainAspectRatio: false,
+    legend: {
+      display: true,
+      position: "bottom"
+    },
     scales: {
       xAxes: [{
+        gridLines: {
+                display:false
+            },
+        scaleLabel: {
+        display: true,
+        fontFamily: 'Helvetica',
+        labelString: 'Year'
+        },
         stacked: true,
-      }, ],
-
+        }],
+      
       yAxes: [{
+        scaleLabel: 
+        {
+        display: true,
+        fontFamily: 'Helvetica',
+        labelString: 'Value'
+        },
         stacked: true,
         ticks: {
           beginAtZero: true,
@@ -92,9 +252,12 @@ var chart = new Chart(ctx, {
                 "$" + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
               );
             } else {
-              return "$" + value;
+              return "$" + value ;
             }
           },
+        fontColor: "#2f394b",
+      fontFamily: "Helvetica",
+      fontSize: 12,
         },
       }, ],
     },
@@ -102,97 +265,7 @@ var chart = new Chart(ctx, {
       display: false,
     },
     chart: {
-      fontColor: "#2f394b",
-      fontFamily: "Helvetica Neue",
-      fontSize: 12,
+      
     },
-  },
-});
-
-let compound = function () {
-  let periods = [];
-  let values = [];
-  let initial = [];
-
-  let contributions = [];
-  let totalContributions = 0;
-
-  let earnings = [];
-  let total = [];
-  let totalEarnings = 0;
-
-  let year = 1;
-
-  let p = toNumber(value.value);
-  // console.log(p);
-
-  let c = toNumber(contribution.value);
-  // console.log(c);
-
-  let n = +years.value;
-  // console.log(n);
-
-  let i = parseInt(interest.value.replace("%", "")) / 100;
-  // console.log(i);
-
-  let f = parseInt(frequency.value);
-
-  let x = 0;
-
-  while (x < n) {
-
-   
-    initial.push(p);
-
-    totalContributions = c * f + totalContributions;
-    contributions.push(totalContributions);
-    // console.log(totalContributions);
-
-    totalEarnings = totalEarnings + (p + totalContributions) * i;
-    earnings.push(totalEarnings);
-
-    let row = table.insertRow(-1);
-    let yearCol = row.insertCell(0);
-    let startCol = row.insertCell(1);
-    let intCol = row.insertCell(2);
-    let contCol = row.insertCell(3);
-    let endCol = row.insertCell(4);
-     
-    yearCol.innerHTML = year;
-    startCol.innerHTML = formatCurrency(p);
-    intCol.innerHTML = totalEarnings;
-    contCol.innerHTML = c;
-    endCol.innerHTML = p;
-
-    yearCol.classList.add("table__item");
-    startCol.classList.add("table__item");
-    intCol.classList.add("table__item");
-    contCol.classList.add("table__item");
-    endCol.classList.add("table__item");
-
-
-
-    total.push(totalEarnings + totalContributions + p);
-    console.log(total);
-    periods.push(`Year ${year}`);
-    year++;
-    x++;
   }
-  console.log(totalEarnings + totalContributions + p);
-
-  document.querySelector("#yearsOutcome").innerHTML = ` after ${n} years`;
-
-  valueOutcome.innerHTML = formatCurrency(totalEarnings + totalContributions + p);
-  earningsOutcome.innerHTML = formatCurrency(totalEarnings);
-  contributionsOutcome.innerHTML = formatCurrency(totalContributions);
-
-  chart.data.datasets[0].data = initial;
-  chart.data.datasets[1].data = contributions;
-  chart.data.datasets[2].data = earnings;
-  chart.data.labels = periods;
-  chart.update();
-};
-
-let button = document.querySelector(".btn");
-
-button.addEventListener("click", compound);
+  });

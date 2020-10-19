@@ -20,7 +20,7 @@
         <div class="header__content">
           <i class="fas fa-calculator"></i>
           <h1 class="header__title">
-            Fintools
+            Investment Calculator
           </h1>
         </div>
       </div>
@@ -28,31 +28,20 @@
 
     <main class="main">
 
-
-
-
       <div class="components">
-
-
-
-
         <section class="component component--inputs">
-          <h2 class="component__heading">Details</h2>
+          <h2 class="component__heading">Your Details</h2>
 
           <div class="inputs">
 
-
             <div class="input__container">
-              <label for="value" class="input__label">Starting Amount </label>
-
-              <input type="text" id="value" inputmode="numeric" value="$10,000" class="input__box input__box--money"
-                name="value" />
+              <label for="startingAmount" class="input__label">Starting Amount </label>
+              <input type="text" id="startingAmount" inputmode="numeric" value="$10,000" class="input__box input__box--money"
+                name="startingAmount" />
             </div>
-
 
             <div class="input__container input__container--contribution">
               <label for="contribution" class="input__label ">Contribution</label>
-
               <input type="text" id="contribution" inputmode="numeric" class="input__box input__box--money"
                 name="contribution" value="$500" data-type="currency" />
             </div>
@@ -69,75 +58,57 @@
               </select>
             </div>
 
-
-
             <div class="input__container">
               <label for="interest" class="input__label">Annual Return</label>
               <input type="text" id="interest" inputmode="decimal" id="interest" class="input__box--percentage"
                 value="7.00%" name="interest" />
             </div>
 
-
             <div class="input__container">
               <label for="years" class="input__label">Number of Years</label>
               <input type="text" id="years" inputmode="numeric" class="input__box--percentage" value="10"
                 name="years" />
-
             </div>
 
           </div>
-
-
-
-
-
-
-
           <button class="btn">Compound!</button>
         </section>
 
-
-
-
-
-
-
         <section class="component component--results">
           <h2 class="component__heading">Result<span id="yearsOutcome"></span></h2>
+          
           <div class="outcomes">
             <div class="outcome__chart">
               <canvas id="myChart"></canvas>
             </div>
+
             <div class="outcome outcome--value">
               <h3 class="outcome__title--value">Total Value</h3>
-
-              <div class="outcome__text--value" id="valueOutcome">$0</div>
+              <div class="outcome__text--value" id="totalValue">$0</div>
             </div>
 
+            <div class="outcome outcome--initial">
+              <h3 class="outcome__title">Initial Investment</h3>
+              <div class="outcome__text" id="initialInvestment">$0</div>
+            </div>
             <div class="outcome outcome--earnings">
-              <h3 class="outcome__title">Total Earnings</h3>
-
+              <h3 class="outcome__title">Earnings</h3>
               <div class="outcome__text" id="earnings">$0</div>
             </div>
 
             <div class="outcome outcome--contributions">
-              <h3 class="outcome__title">Total Contributions</h3>
-
+              <h3 class="outcome__title">Contributions</h3>
               <div class="outcome__text" id="contributions">$0</div>
             </div>
-
-
           </div>
-
-
         </section>
+
         <section class="component component--details">
-          
           <h2 class="component__heading">Details</h2>
 
             <table class="table" id="table">
               <thead>
-                <tr class="table__row">
+                <tr class="table__row"></tr>
                   <th class="table__head">Year</th>
                   <th class="table__head">Starting Amount</th>
                   <th class="table__head">Interest Earned</th>
@@ -146,7 +117,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
+                <!-- <tr>
                   <td class="table__item">1</td>
                   <td class="table__item">$50,000</td>
                   <td class="table__item">$1,000</td>
@@ -159,44 +130,28 @@
                   <td class="table__item">$1,000</td>
                   <td class="table__item">$60,000</td>
                   <td class="table__item">$101,000</td>
-                </tr>
+                </tr> -->
               </tbody>
 
             </table>
 
         </section>
 
-        
       </div>
-  </div>
+  
+    </main>
+    <footer class="footer">
 
-  </div>
-
-
- 
-
-
-
-
-
-
-
-
-
-
-  </main>
-  <footer class="footer">
-    <div class="wrapper">
-
-      <div class="footer__container">
-        <div class="footer__header">header</div>
+      <div class="wrapper">
+        <div class="footer__container">
+          <div class="footer__header">Header</div>
+        </div>
       </div>
 
-    </div>
+    </footer>
 
-  </footer>
+  
   </div>
-
   <script src="index.js"></script>
 </body>
 
