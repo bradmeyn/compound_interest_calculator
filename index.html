@@ -9,12 +9,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Lato&family=Ubuntu&family=Ubuntu+Mono&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="stylesheet" href="css/style.min.css" />
   <script src="https://kit.fontawesome.com/45deced4f4.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <div class="everything">
+  
     <header class="header">
       <div class="wrapper">
         <div class="header__content">
@@ -71,10 +71,10 @@
             </div>
 
           </div>
-          <button class="btn">Compound!</button>
+          <button class="btn" id="button">Compound!</button>
         </section>
 
-        <section class="component component--results">
+        <section class="component component--results component--hidden" id="results">
           <h2 class="component__heading">Result<span id="yearsOutcome"></span></h2>
           
           <div class="outcomes">
@@ -103,9 +103,9 @@
           </div>
         </section>
 
-        <section class="component component--details">
-          <h2 class="component__heading">Details</h2>
-
+        <section class="component component--details component--hidden" id="details">
+          <h2 class="component__heading">Additional Information</h2>
+            <h3 class="component__subHeading">Yearly Figures</h3>
             <table class="table" id="table">
               <thead>
                 <tr class="table__row"></tr>
@@ -117,23 +117,18 @@
                 </tr>
               </thead>
               <tbody>
-                <!-- <tr>
-                  <td class="table__item">1</td>
-                  <td class="table__item">$50,000</td>
-                  <td class="table__item">$1,000</td>
-                  <td class="table__item">$60,000</td>
-                  <td class="table__item">$101,000</td>
-                </tr>
-                <tr>
-                  <td class="table__item">1</td>
-                  <td class="table__item">$50,000</td>
-                  <td class="table__item">$1,000</td>
-                  <td class="table__item">$60,000</td>
-                  <td class="table__item">$101,000</td>
-                </tr> -->
+       
               </tbody>
 
             </table>
+
+            <h3 class="component__subHeading">Assumptions</h3>
+
+            <ul class="assumptions">
+              <li class="assumptions__item">Interest is compounded yearly</li>
+              <li class="assumptions__item">Figures do not take into consideration taxes or investment costs</li>
+              <li class="assumptions__item">Interest is reinvested</li>
+            </ul>
 
         </section>
 
@@ -151,7 +146,7 @@
     </footer>
 
   
-  </div>
+  
   <script src="index.js"></script>
 </body>
 

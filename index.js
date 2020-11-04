@@ -5,7 +5,10 @@ let contribution = document.querySelector("#contribution");
 let year = document.querySelector("#years");
 let interest = document.querySelector("#interest");
 let frequency = document.querySelector("#frequency");
-let button = document.querySelector(".btn");
+let button = document.querySelector("#button");
+
+let results = document.getElementById("results");
+let details = document.getElementById("details");
 
 
 
@@ -20,7 +23,7 @@ const table =  document.getElementById("table");
 
 
 
-
+//helper functions
 
 let toNumber = function (currency) {
   return parseFloat(currency.replace("$", "").replace(",", ""));
@@ -30,10 +33,18 @@ let formatCurrency = function (int) {
   return "$" + Intl.NumberFormat().format(int);
 };
 
+//event listeners
+
 document.querySelectorAll(".input__box--money").forEach((input) => {
+
   input.addEventListener("change", (event) => {
-    console.log(input.value);
     input.value = "$" + Intl.NumberFormat().format(input.value);
+  });
+
+  input.addEventListener("keyup", (event) => {
+    if (event.keyCode === 13) {
+      button.click();
+  };
   });
 });
 
@@ -47,13 +58,17 @@ interest.addEventListener("change", () => {
 
 
 
+
 let compound = function () {
+
+  results.classList.remove("component--hidden");
+  details.classList.remove("component--hidden");
+
 //remove existing rows from details section
 for (let i = document.querySelector(".table").rows.length; i > 2; i--) {
 document.querySelector(".table").deleteRow(i-1);
 }
 
-// rows = document.querySelectorAll("tr")
 
   let years = [];
   let initial = [];
@@ -120,11 +135,9 @@ document.querySelector(".table").deleteRow(i-1);
     //Column 3: Interest Earned
     intCol.innerHTML = formatCurrency(interestEarned);
     totalEarnings = parseFloat((interestEarned + totalEarnings).toFixed(2));
-    console.log("earnings", totalEarnings);
-
+  
     totalValue = parseFloat((totalValue + (totalValue * i) + (c * f)).toFixed(2));
 
-    console.log("total", totalValue);
 
     //Column 4: Contribution
     contCol.innerHTML = formatCurrency(c * f);
@@ -134,7 +147,6 @@ document.querySelector(".table").deleteRow(i-1);
 
     //Push contribution total to chart
     totalContributions = c * f + totalContributions;
-
 
     earnings.push(totalEarnings);
  
@@ -163,6 +175,7 @@ document.querySelector(".table").deleteRow(i-1);
 };
 
 button.addEventListener("click", compound);
+
 
 
 
@@ -217,7 +230,7 @@ let chart = new Chart(ctx, {
 
   // Configuration options go here
   options: {
-    responsive: false,
+    responsive: true,
     maintainAspectRatio: false,
     legend: {
       display: true,
