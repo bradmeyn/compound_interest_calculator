@@ -3,7 +3,7 @@
 
   --primary-darkest: #12003b;
   --primary-dark: #4e3980;
-  --primary: #8544db;
+  
   --primary-light: #b39cd0;
 
   --secondary-dark: #ce694f;
@@ -20,7 +20,7 @@
   --grey-dark: #949494;
   --grey-darkest: #5d5d5d;
 
-  --radius: 5px;
+  --radius: 2px;
   --shadow-card: 0 2px 4px rgba(0, 0, 0, 0.25);
 
   --font-heading: "Ubuntu", sans-serif;
@@ -28,10 +28,9 @@
 
   --content-width: 130rem;
 
-  
-  
-
 }
+
+$primary: #8544db;
 
 $phone: 640px;
   $tablet: 768px;
@@ -98,13 +97,18 @@ body {
 }
 
 .component {
-  
-  background-color: var(--grey-light);
-  padding: 3rem;
+  padding: 2rem 3rem;
+  width: 100%;
+
+  &__heading {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-darkest);
+    font-family: var(--font-heading);
+  }
 
   &--inputs {
-    
-    width: 100%;
+    background-color: var(--grey-lightest);
   }
 
   &--results {
@@ -112,20 +116,7 @@ body {
   }
 
   &--details {
-    width: 100%;
     background-color: #e9e9e9;
-  }
-
-  &--hidden {
-
-  }
-
-  &__heading {
-    font-size: 3rem;
-    margin-bottom: 2rem;
-    width: 100%;
-    color: var(--primary-darkest);
-    font-family: var(--font-heading);
   }
 
 &__subHeading {
@@ -138,125 +129,50 @@ body {
 
 }
 
-@media (min-width: $tablet)
-{
-
-  .components {
-    display: flex;
-    
-  }
-
-  .component {
-    padding: 3rem;
-
-    &--inputs {
-      flex: 1 30rem;
-    }
-
-    &--results {
-      flex: 2 50%;
-      background-color: var(--white);
-    }
-
-    &--details {
-
-      width: 100%;
-      background-color: #e9e9e9;
-    }
-
-    &--hidden {}
-  }
-
-}
-
-
-
 /* inputs */
 
 .inputs {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
   position: relative;
+  border: solid 1px red;
   
 }
 
 .input {
+  
   &__container {
     position: relative;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     overflow: auto;
     width: 100%;
-  }
+      }
+
+   &__label {
+     font-size: 1.2rem;
+     font-family: var(--font-heading);
+     font-weight: 600;
+     color: var(--primary-darkest);
+   }
 
   &__box {
     display: block;
     border-radius: var(--radius);
-    margin-top: 1rem;
+    margin-top: .5rem;
     padding: 1rem 0 1rem 2rem;
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     width: 100%;
     border: none;
     background-color: var(--white);
     color: var(--primary-dark);
-
-    &--frequency {
-      display: block;
-      border-radius: var(--radius);
-      margin-top: 0.5rem;
-      padding: 1rem;
-      font-size: 1.75rem;
-      width: 100%;
-      border: none;
-      background-color: var(--grey-lightest);
-      color: var(--primary-dark);
-    }
-
-    &--percentage {
-      display: block;
-      border-radius: var(--radius);
-      margin-top: 0.5rem;
-      padding: 1rem 0 1rem 2rem;
-      font-size: 1.75rem;
-      width: 100%;
-      border: none;
-      background-color: var(--grey-lightest);
-      color: var(--primary-dark);
-    }
-  }
-
-  &__label {
-    font-size: 1.5rem;
-    font-family: var(--font-heading);
-    font-weight: 600;
-    color: var(--primary-darkest);
-  }
-
-  &__box:focus,
-  &__box--frequency:focus,
-  &__box:active,
-  &__box--contribution:active {
-    outline: none;
-    box-shadow: var(--shadow-card);
-  }
-
-  &__box::placeholder,
-  &__box--franking::placeholder {
-    color: var(--grey);
-    outline: none;
-  }
+      }
 }
 
 .btn {
-  display: flex;
   text-align: center;
-  background-color: var(--primary);
+  background-color: $primary;
   font-size: 2rem;
   color: white;
   width: 100%;
-  margin: 2rem auto;
   padding: 1rem;
   border-radius: var(--radius);
   justify-content: center;
@@ -264,32 +180,20 @@ body {
   cursor: pointer;
   box-shadow: var(--shadow-card);
   font-family: var(--font-body);
-
   &:hover {
-    background-color: var(--secondary);
-    transform: translatey(-1px) scale(1.05);
+    background-color: lighten($primary, 30%);
+    color: var(--primary-darkest);
     transition: all linear 0.2s;
   }
 }
 
-.taxable-income {
-  font-size: 1.5rem;
-}
-
-.taxable-income__output {
-  font-size: 2rem;
-  text-align: center;
-  padding-top: 2rem;
-}
-
-.total-output {
-  font-size: 1.5rem;
-}
+//outcome Section
 
 .outcomes {
-  margin-top: 2rem;
-  display: flex;
-  flex-wrap: wrap;
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  border: solid 1px red;
 }
 
 .outcome {
@@ -297,36 +201,28 @@ body {
   vertical-align: center;
   position: relative;
   padding: 1rem;
-  margin-top: 2.5rem;
+  
+border: solid 1px green;
 
-  &--value {
-    background-color: var(--ligh);
-    flex: 1 100%;
+  &__chart-container {
+    
+    position: relative;
+    margin: auto;
+    border: solid 1px blue;
+    width: 100%;
   }
 
-  &--initial {
-    flex: 1 10rem;
-  }
 
-  &--earnings {
-    flex: 1 10rem;
-  }
-
-  &--contributions {
-    flex: 1 10rem;
-  }
 
   &__title {
     font-weight: 700;
-    padding: 0.2rem;
+    padding-bottom: 0.5rem;
     color: var(--primary);
     font-size: 1.75rem;
 
     &--value {
-      font-weight: 700;
-      padding: 0.2rem;
+      @extend .outcome__title;
       color: var(--primary-darkest);
-      font-size: 1.75rem;
     }
   }
 
@@ -334,37 +230,20 @@ body {
     display: block;
     font-weight: 700;
     font-family: var(--font-heading);
-    font-size: 3rem;
-    padding: 1rem;
+    font-size: 2rem;
     color: var(--primary-darkest);
     margin-bottom: 0.5rem;
 
     &--value {
-      display: block;
-      font-weight: 700;
-      font-family: var(--font-heading);
-      font-size: 3.5rem;
-      padding: 1rem;
+     @extend .outcome__text;
       color: var(--secondary);
     }
   }
 
-  &__text--positive {
-    color: var(--green);
-  }
-
-  &__text--negative {
-    color: var(--secondary-dark);
-  }
-
-  &__chart {
-    position: relative;
-    margin: auto;
-   
-    width: 100%;
-  }
 }
 
+
+//Additional Information Section
 
 .details {
   width: 100%;
@@ -372,16 +251,16 @@ body {
 }
 
 .table {
+  overflow: hidden;
   border-collapse: collapse;
   width: 100%;
-  border-radius: 20px;
+  border-radius: var(--radius);
   margin-bottom: 3rem;
 
   &__head {
     background-color: var(--primary-dark);
-    
     color: var(--white);
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-family: var(--font-heading);
     font-weight: 300;
     padding: 1.25rem;
@@ -401,8 +280,8 @@ body {
     background-color: var(--primary-light);
     border-top: solid 1px var(--primary-dark);
     color: var(--grey-lightest);
-    font-size: 1.25rem;
-    padding: 1rem;
+    font-size: .9rem;
+    padding: .5rem;
     text-align: right;
     
   }

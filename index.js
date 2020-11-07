@@ -10,7 +10,10 @@ let button = document.querySelector("#button");
 let results = document.getElementById("results");
 let details = document.getElementById("details");
 
-
+ let years = [];
+  let initial = [];
+  let contributions = [];
+  let earnings = [];
 
 
 //output DOM selectors
@@ -70,13 +73,11 @@ document.querySelector(".table").deleteRow(i-1);
 }
 
 
-  let years = [];
-  let initial = [];
+ 
 
-  let contributions = [];
   let totalContributions = 0;
 
-  let earnings = [];
+  
   let total = [];
   let totalEarnings = 0;
 
@@ -167,23 +168,24 @@ document.querySelector(".table").deleteRow(i-1);
   contributionsOutcome.innerHTML = formatCurrency(totalContributions);
   initialInvestment.innerHTML = formatCurrency(p);
 
+  console.log(years,initial, contributions, earnings);
+
   chart.data.datasets[0].data = initial;
   chart.data.datasets[1].data = contributions;
   chart.data.datasets[2].data = earnings;
   chart.data.labels = years;
   chart.update();
+  
+ 
 };
 
 button.addEventListener("click", compound);
 
 
 
-
-
-
 //bar chart
 
-let ctx = document.getElementById("myChart");
+let ctx = document.getElementById("main-chart");
 Chart.defaults.global.defaultFontColor = "#2f394b";
 Chart.defaults.global.defaultFontFamily = "Helvetica";
 Chart.defaults.global.defaultFontStyle = "bold";
@@ -231,7 +233,7 @@ let chart = new Chart(ctx, {
   // Configuration options go here
   options: {
     responsive: true,
-    maintainAspectRatio: false,
+    maintainAspectRatio: true,
     legend: {
       display: true,
       position: "bottom"
@@ -250,12 +252,8 @@ let chart = new Chart(ctx, {
         }],
       
       yAxes: [{
-        scaleLabel: 
-        {
-        display: true,
-        fontFamily: 'Helvetica',
-        labelString: 'Value'
-        },
+        
+       
         stacked: true,
         ticks: {
           beginAtZero: true,
