@@ -7,147 +7,189 @@
   <title>Compound Interest Calculator</title>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Lato&family=Ubuntu&family=Ubuntu+Mono&display=swap"
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap"
     rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
   <link rel="stylesheet" href="css/style.min.css" />
-  <script src="https://kit.fontawesome.com/45deced4f4.js" crossorigin="anonymous"></script>
- 
+
+
 </head>
 
 <body>
-  
-    <header class="header">
-      <div class="wrapper">
-        <div class="header__content">
-          <i class="fas fa-calculator"></i>
-          <h1 class="header__title">
-            Investment Calculator
-          </h1>
+
+  <header class="header">
+    <div class="header__content">
+      <i class="header__icon las la-percentage"></i>
+      <h1 class="header__title">
+        Investment Calculator
+      </h1>
+    </div>
+  </header>
+
+  <main class="main">
+
+
+
+    <section class="section section--inputs">
+      <h2 class="section__heading">Your Details</h2>
+
+      <div class="inputs">
+
+        <div class="input__container">
+          <label for="startingAmount" class="input__label">Starting Amount </label>
+          <input type="text" id="startingAmount" inputmode="numeric" value="$10,000" class="input__box"
+            name="startingAmount" />
         </div>
-      </div>
-    </header>
 
-    <main class="main">
-
-      <div class="components">
-        <section class="component component--inputs">
-          <h2 class="component__heading">Your Details</h2>
-
-          <div class="inputs">
-
-            <div class="input__container">
-              <label for="startingAmount" class="input__label">Starting Amount </label>
-              <input type="text" id="startingAmount" inputmode="numeric" value="$10,000" class="input__box"
-                name="startingAmount" />
-            </div>
-
-            <div class="input__container">
-              <label for="contribution" class="input__label ">Contribution</label>
-              <input type="text" id="contribution" inputmode="numeric" class="input__box"
-                name="contribution" value="$500" data-type="currency" />
-            </div>
-
-            <div class="input__container">
-              <label for="frequency" class="input__label">Frequency</label>
-              <select class="input__box" id="frequency" name="frequency" />
-              <option value="52">Weekly</option>
-              <option value="26">Fortnighly</option>
-              <option value="12" selected="selected">Monthly</option>
-              <option value="4">Quarterly</option>
-              <option value="2">Half-yearly</option>
-              <option value="1">Yearly</option>
-              </select>
-            </div>
-
-            <div class="input__container">
-              <label for="interest" class="input__label">Annual Return</label>
-              <input type="text" id="interest" inputmode="decimal" id="interest" class="input__box"
-                value="7.00%" name="interest" />
-            </div>
-
-            <div class="input__container">
-              <label for="years" class="input__label">Number of Years</label>
-              <input type="text" id="years" inputmode="numeric" class="input__box" value="10"
-                name="years" />
-            </div>
-
-          </div>
-          <button class="btn" id="button">Compound!</button>
-        </section>
-
-        <section class="component component--results" id="results">
-          <h2 class="component__heading">Result<span id="yearsOutcome"></span></h2>
-          
-          <div class="outcomes">
-            <div class="outcome__chart-container">
-             <canvas class="outcome__chart" id="main-chart"></canvas>
-            </div>
-
-            <div class="outcome outcome--value">
-              <h3 class="outcome__title--value">Total Value</h3>
-              <div class="outcome__text--value" id="totalValue">$0</div>
-            </div>
-
-            <div class="outcome outcome--initial">
-              <h3 class="outcome__title">Initial Investment</h3>
-              <div class="outcome__text" id="initialInvestment">$0</div>
-            </div>
-            <div class="outcome outcome--earnings">
-              <h3 class="outcome__title">Earnings</h3>
-              <div class="outcome__text" id="earnings">$0</div>
-            </div>
-
-            <div class="outcome outcome--contributions">
-              <h3 class="outcome__title">Contributions</h3>
-              <div class="outcome__text" id="contributions">$0</div>
-            </div>
-          </div>
-        </section>
-
-        <section class="component component--details component--hidden" id="details">
-          <h2 class="component__heading">Additional Information</h2>
-            <h3 class="component__subHeading">Yearly Figures</h3>
-            <table class="table" id="table">
-              <thead>
-                <tr class="table__row"></tr>
-                  <th class="table__head">Year</th>
-                  <th class="table__head">Starting Amount</th>
-                  <th class="table__head">Interest Earned</th>
-                  <th class="table__head">Contributions</th>
-                  <th class="table__head">Ending Amount</th>
-                </tr>
-              </thead>
-              <tbody>
-       
-              </tbody>
-
-            </table>
-
-            <h3 class="component__subHeading">Assumptions</h3>
-
-            <ul class="assumptions">
-              <li class="assumptions__item">Interest is compounded yearly</li>
-              <li class="assumptions__item">Figures do not take into consideration taxes or investment costs</li>
-              <li class="assumptions__item">Interest is reinvested</li>
-            </ul>
-
-        </section>
-
-      </div>
-  
-    </main>
-    <footer class="footer">
-
-      <div class="wrapper">
-        <div class="footer__container">
-          <div class="footer__header">Header</div>
+        <div class="input__container">
+          <label for="contribution" class="input__label ">Contribution</label>
+          <input type="text" id="contribution" inputmode="numeric" class="input__box" name="contribution" value="$500"
+            data-type="currency" />
         </div>
+
+        <div class="input__container">
+          <label for="frequency" class="input__label">Frequency</label>
+          <select class="input__box" id="frequency" name="frequency" />
+          <option value="52">Weekly</option>
+          <option value="26">Fortnighly</option>
+          <option value="12" selected="selected">Monthly</option>
+          <option value="4">Quarterly</option>
+          <option value="2">Half-yearly</option>
+          <option value="1">Yearly</option>
+          </select>
+        </div>
+
+        <div class="input__container">
+          <label for="interest" class="input__label">Annual Return</label>
+          <input type="text" id="interest" inputmode="decimal" id="interest" class="input__box" value="7.00%"
+            name="interest" />
+        </div>
+
+        <div class="input__container">
+          <label for="years" class="input__label">Number of Years</label>
+          <input type="text" id="years" inputmode="numeric" class="input__box" value="10" name="years" />
+        </div>
+
+
+      </div>
+      <button class="btn" id="button">Compound</button>
+    </section>
+
+    <section class="section section--results" id="results">
+
+      <div class="outcomes">
+        <h2 class="section__heading">Outcome <span id="years-outcome"></span></h2>
+
+        <div class="outcomes__container">
+          <div class="outcome">
+            <span class="outcome__title">Total Value</span>
+            <span class="outcome__value" id="value-outcome"></span>
+          </div>
+
+          <div class="outcome">
+            <span class="outcome__title">Total Interest</span>
+            <span class="outcome__value" id="interest-outcome"></span>
+          </div>
+
+          <div class="outcome">
+            <span class="outcome__title">Total Contributions</span>
+            <span class="outcome__value" id="contributions-outcome"></span>
+          </div>
+        </div>
+
+
+        <div class="chart-container">
+          <canvas class="outcome__chart" id="main-chart"></canvas>
+        </div>
+
+        <h3 class="section__subHeading">Yearly Figures</h3>
+        <table class="table" id="table">
+          <thead>
+            <tr class="table__row"></tr>
+            <th class="table__head">Year</th>
+            <th class="table__head">Starting Amount</th>
+            <th class="table__head">Interest Earned</th>
+            <th class="table__head">Contributions</th>
+            <th class="table__head">Ending Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- inserted via compound function -->
+          </tbody>
+
+        </table>
+
       </div>
 
-    </footer>
+      <div class="additional-info">
 
-  
-  
+
+      </div>
+      <h3 class="section__subHeading">Assumptions</h3>
+
+      <ul class="assumptions">
+        <li class="assumptions__item">Interest is compounded annually</li>
+        <li class="assumptions__item">Figures are rounded to the nearest whole number</li>
+        <li class="assumptions__item">Figures do not take into consideration taxes on earnings</li>
+        <li class="assumptions__item">Figures do not take into consideration investment fees</li>
+        <li class="assumptions__item">Interest is reinvested</li>
+      </ul>
+
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+
+
+      <div class="footer-main">
+
+
+        <div class="footer-main__container">
+          <h4>Other Projects</h4>
+          <ul>
+            <li><a href="#">Personal Portfolio</a></li>
+            <li><a href="https://eager-poitras-2ed70d.netlify.app/">Currency Converter</a></li>
+
+          </ul>
+        </div>
+        <div class="footer-main__container">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="https://moneysmart.gov.au/how-to-invest">Moneysmart</a></li>
+
+            <li><a href="https://www.vanguard.com.au/personal/education-centre/en/education-guides">Vanguard</a></li>
+            <li><a href="https://www.marketindex.com.au/">Market Index</a></li>
+
+          </ul>
+        </div>
+        <div class="footer-main__container">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+
+          </ul>
+        </div>
+
+      </div>
+      <div class="footer-main__brad">
+        <h4>Site by Brad Meyn</h4>
+        <ul>
+          <li><a href="#"><i class="lab la-github"></i>Github</a></li>
+          <li><a href="#"><i class="las la-envelope"></i>bradjmeyn@gmail.com</a></li>
+        </ul>
+
+
+      </div>
+
+      <div class="copyright">&#x24B8; Copyright 2020 Brad Meyn. All rights reserved.</div>
+    </div>
+  </footer>
+
   <script src="index.js"></script>
 </body>
 
