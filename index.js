@@ -26,31 +26,49 @@ const table = document.getElementById("table");
 //helper functions
 
 let toNumber = function (currency) {
+  return numeral(currency).value();
   return parseFloat(currency.replace("$", "").replace(",", ""));
 };
 
 let formatCurrency = function (int) {
-  return "$" + Intl.NumberFormat().format(int);
+  return numeral(int).format("$0,0.00");
 };
+
+
+let formatPercentage = function (int) {
+   return numeral(int).format("0.00%");
+  
+}
 
 //event listeners
 
-document.querySelectorAll(".input__box--money").forEach((input) => {
+document.querySelectorAll(".currency-input").forEach((input) => {
 
   input.addEventListener("change", (event) => {
-    input.value = "$" + Intl.NumberFormat().format(input.value);
+    input.value = formatCurrency(input.value);
+    // input.value = "$" + Intl.NumberFormat().format(input.value);
   });
 
-  input.addEventListener("keyup", (event) => {
-    if (event.keyCode === 13) {
+});
+
+
+
+document.querySelectorAll("input").forEach((input) => {
+  input.addEventListener("keyup", (e) => {
+    if (e.key === "Enter") {
       button.click();
     };
   });
+})
+
+
+
+
+interest.addEventListener("change", function () {
+  console.log(this.value);
+  this.value = parseFloat(this.value).toFixed(2) + "%";
 });
 
-interest.addEventListener("change", () => {
-  interest.value = `${interest.value}%`;
-});
 
 
 
@@ -58,8 +76,7 @@ interest.addEventListener("change", () => {
 
 
 
-
-let compound = function () {
+let compound = () => {
 
   document.querySelector(".outcomes").classList.add("open");
   document.querySelector(".additional-info").classList.add("open");
@@ -255,16 +272,17 @@ let chart = new Chart(ctx, {
 
         stacked: true,
         ticks: {
-          maxTicksLimit: 6,
+          maxTicksLimit: 5,
           beginAtZero: true,
-          fontSize: 16,
+          fontSize: 14,
           callback: function (value, index, values) {
             if (parseInt(value) >= 1000) {
               return (
-                "$" + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                numeral(value).format("$0,0")
+                // "$" + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
               );
             } else {
-              return "$" + value;
+              // return "$" + value;
             }
           },
         },

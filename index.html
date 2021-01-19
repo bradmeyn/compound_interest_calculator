@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Compound Interest Calculator</title>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
   <link
@@ -12,7 +13,7 @@
     rel="stylesheet">
   <link rel="stylesheet"
     href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-  <link rel="stylesheet" href="css/style.min.css" />
+  <link rel="stylesheet" href="/styles/css/style.min.css" />
 
 
 </head>
@@ -39,14 +40,14 @@
 
         <div class="input__container">
           <label for="startingAmount" class="input__label">Starting Amount </label>
-          <input type="text" id="startingAmount" inputmode="numeric" value="$10,000" class="input__box"
+          <input type="text" id="startingAmount" inputmode="numeric" value="$10,000" class="input__box currency-input"
             name="startingAmount" />
         </div>
 
         <div class="input__container">
-          <label for="contribution" class="input__label ">Contribution</label>
-          <input type="text" id="contribution" inputmode="numeric" class="input__box" name="contribution" value="$500"
-            data-type="currency" />
+          <label for="contribution" class="input__label currency-input">Contribution</label>
+          <input type="text" id="contribution" inputmode="numeric" class="input__box currency-input" name="contribution"
+            value="$500" data-type="currency" />
         </div>
 
         <div class="input__container">
@@ -69,7 +70,8 @@
 
         <div class="input__container">
           <label for="years" class="input__label">Number of Years</label>
-          <input type="text" id="years" inputmode="numeric" class="input__box" value="10" name="years" />
+          <input type="text" id="years" min="0" max="99" inputmode="numeric" class="input__box" value="10"
+            name="years" />
         </div>
 
 
@@ -166,20 +168,20 @@
 
           </ul>
         </div>
-        <div class="footer-main__container">
+        <!-- <div class="footer-main__container">
           <h4>Legal</h4>
           <ul>
             <li><a href="#">Terms of Use</a></li>
             <li><a href="#">Privacy Policy</a></li>
 
           </ul>
-        </div>
+        </div> -->
 
       </div>
       <div class="footer-main__brad">
         <h4>Site by Brad Meyn</h4>
         <ul>
-          <li><a href="#"><i class="lab la-github"></i>Github</a></li>
+          <li><a href="https://github.com/bradmeyn" target="_blank"><i class="lab la-github"></i>Github</a></li>
           <li><a href="#"><i class="las la-envelope"></i>bradjmeyn@gmail.com</a></li>
         </ul>
 
