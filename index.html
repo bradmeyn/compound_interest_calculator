@@ -11,8 +11,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet"
-    href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+  <script src="https://kit.fontawesome.com/06496a0555.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="/styles/css/style.min.css" />
 
 
@@ -22,7 +21,7 @@
 
   <header class="header">
     <div class="header__content">
-      <i class="header__icon las la-percentage"></i>
+      <i class="header__icon fas fa-seedling"></i>
       <h1 class="header__title">
         Investment Calculator
       </h1>
@@ -34,7 +33,7 @@
 
 
     <section class="section section--inputs">
-      <h2 class="section__heading">Your Details</h2>
+      <h2 class="section__heading">Investment Details</h2>
 
       <div class="inputs">
 
@@ -45,13 +44,13 @@
         </div>
 
         <div class="input__container">
-          <label for="contribution" class="input__label currency-input">Contribution</label>
+          <label for="contribution" class="input__label currency-input">Contribution Amount</label>
           <input type="text" id="contribution" inputmode="numeric" class="input__box currency-input" name="contribution"
             value="$500" data-type="currency" />
         </div>
 
         <div class="input__container">
-          <label for="frequency" class="input__label">Frequency</label>
+          <label for="frequency" class="input__label">Contribution Frequency</label>
           <select class="input__box" id="frequency" name="frequency" />
           <option value="52">Weekly</option>
           <option value="26">Fortnighly</option>
@@ -86,8 +85,8 @@
 
         <div class="outcomes__container">
           <div class="outcome">
-            <span class="outcome__title">Total Value</span>
-            <span class="outcome__value" id="value-outcome"></span>
+            <span class="outcome__title--total">Total Value</span>
+            <span class="outcome__value--total" id="value-outcome"></span>
           </div>
 
           <div class="outcome">
@@ -144,50 +143,27 @@
   </main>
 
   <footer class="footer">
-    <div class="container">
+    <div class="footer__container">
+      <div class="footer__links">
 
-
-      <div class="footer-main">
-
-
-        <div class="footer-main__container">
+      
+        <nav class="footer__navbar">
           <h4>Other Projects</h4>
           <ul>
             <li><a href="#">Personal Portfolio</a></li>
             <li><a href="https://eager-poitras-2ed70d.netlify.app/">Currency Converter</a></li>
-
           </ul>
-        </div>
-        <div class="footer-main__container">
+        </nav>
+
+        <nav class="footer__navbar">
           <h4>Resources</h4>
           <ul>
             <li><a href="https://moneysmart.gov.au/how-to-invest">Moneysmart</a></li>
-
             <li><a href="https://www.vanguard.com.au/personal/education-centre/en/education-guides">Vanguard</a></li>
             <li><a href="https://www.marketindex.com.au/">Market Index</a></li>
-
           </ul>
-        </div>
-        <!-- <div class="footer-main__container">
-          <h4>Legal</h4>
-          <ul>
-            <li><a href="#">Terms of Use</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-
-          </ul>
-        </div> -->
-
-      </div>
-      <div class="footer-main__brad">
-        <h4>Site by Brad Meyn</h4>
-        <ul>
-          <li><a href="https://github.com/bradmeyn" target="_blank"><i class="lab la-github"></i>Github</a></li>
-          <li><a href="#"><i class="las la-envelope"></i>bradjmeyn@gmail.com</a></li>
-        </ul>
-
-
-      </div>
-
+        </nav>
+     </div>
       <div class="copyright">&#x24B8; Copyright 2020 Brad Meyn. All rights reserved.</div>
     </div>
   </footer>

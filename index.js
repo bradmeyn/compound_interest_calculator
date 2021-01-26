@@ -31,7 +31,7 @@ let toNumber = function (currency) {
 };
 
 let formatCurrency = function (int) {
-  return numeral(int).format("$0,0.00");
+  return numeral(int).format("$0,0");
 };
 
 
@@ -68,11 +68,6 @@ interest.addEventListener("change", function () {
   console.log(this.value);
   this.value = parseFloat(this.value).toFixed(2) + "%";
 });
-
-
-
-
-
 
 
 
@@ -206,7 +201,7 @@ button.addEventListener("click", compound);
 //bar chart
 
 let ctx = document.getElementById("main-chart");
-Chart.defaults.global.defaultFontColor = "#2f394b";
+Chart.defaults.global.defaultFontColor = "#434d56";
 
 Chart.defaults.global.defaultFontStyle = "bold";
 
@@ -226,23 +221,23 @@ let chart = new Chart(ctx, {
     datasets: [{
         label: "Initial Investment",
         data: [],
-        backgroundColor: "#113C6C",
+        backgroundColor: "#683141",
         width: "100%",
 
       },
       {
-        label: "contributions",
+        label: "Contribution",
         data: [],
-        backgroundColor: "#2377D9",
+        backgroundColor: "#B35E78",
         width: "100%",
         fontSize: 14,
       },
       {
         label: "Interest Earned",
         data: [],
-        backgroundColor: "#A3C7F1",
+        backgroundColor: "#D9AEBB",
         width: "100%",
-        fontSize: 16,
+        
       },
     ],
   },
@@ -257,24 +252,34 @@ let chart = new Chart(ctx, {
     },
     scales: {
       xAxes: [{
+        ticks: {
+          fontSize: 16,
+          fontFamily: "Roboto Condensed"
+        },
+        
         gridLines: {
-          display: false
+          display: false,
         },
         scaleLabel: {
           display: true,
-          labelString: 'Year'
+          labelString: 'Year',
+          fontSize: 16,
+          fontFamily: "Roboto Condensed"
         },
         stacked: true,
       }],
 
       yAxes: [{
 
-
+        
         stacked: true,
         ticks: {
           maxTicksLimit: 5,
           beginAtZero: true,
-          fontSize: 14,
+          fontSize: 16,
+          fontFamily: "Roboto Condensed",
+          
+        
           callback: function (value, index, values) {
             if (parseInt(value) >= 1000) {
               return (
@@ -289,10 +294,40 @@ let chart = new Chart(ctx, {
       }, ],
     },
     legend: {
-      display: false,
+      display: true,
+      labels : {
+          fontSize: 14,
+      fontFamily: "Roboto Condensed",
+      },
+      
     },
     chart: {
 
+    },
+    tooltips: {
+      yAlign: "bottom",
+
+      callbacks: {
+        
+        label: function(tooltipItems, data) { 
+                        return formatCurrency(tooltipItems.yLabel);
+                    },
+
+        title: function (tooltip, data) {
+          return "Year " +tooltip[0].label ;
+          },
+          },
+          
+          titleAlign: "center",
+          titleFontSize: 15,
+          titleMarginBottom: 10,
+          bodySpacing: 10,
+          bodyFontSize: 15,
+          mode: "x",
+          xPadding: 10,
+          yPadding: 10,
+         
+      // bodySpacing: "5"
     },
   }
 });

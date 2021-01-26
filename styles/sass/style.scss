@@ -23,6 +23,10 @@
 
 $primary: #7a3a4d;
 
+$light:#cf7b95;
+
+$dark:#b96e85;
+
 $secondary: #1c286e;
 
 $tertiary: #328143;
@@ -49,7 +53,6 @@ html {
 body {
   font-family: var(--font-body);
   padding: 0;
-
 }
 
 
@@ -93,7 +96,6 @@ body {
 //sections
 
 main {
-
   min-height: 75vh;
 }
 
@@ -163,7 +165,7 @@ main {
     border-radius: var(--radius);
     margin-top: .5rem;
     padding: 1.25rem;
-    font-size: 1.75rem;
+    font-size: 2rem;
     font-weight: 500;
     font-family: var(--font-body);
     width: 100%;
@@ -213,46 +215,56 @@ main {
   position: relative;
   margin: 0 auto;
   
+  
 
   &.open {
     max-height: 200rem;
   }
 
   &__container {
-    align-items: center;
+    margin: 0 auto;
+    // width: 40rem;
+    // border: solid 1px red;
   }
 
 }
 
 .outcome {
-  margin: 0 auto 1rem;
+  
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   border-bottom: solid .1px lighten($primary, 40%);
-  padding-bottom: .5rem;
-  
+  margin-bottom: 2rem;
+  padding-bottom: .25rem;
+
 
   &__title {
+    font-size: 1.75rem;
     font-weight: 500;
     color: var(--primary-darkest);
-    font-size: 1.5rem;
 
+    &--total {
+      @extend .outcome__title;
+      font-size: 2rem;
+    }
   }
 
   &__value {
+    font-size: 2.5rem;
     padding-left: 1rem;
-    font-weight: 700;
     font-family: var(--font-body);
-    font-size: 2rem;
     color: lighten($primary, 20%);
+
+    &--total {
+      @extend .outcome__value;
+      font-weight: 700;
+    }
   }
 
 }
 
-#main-chart {
-  
-}
+
 
 .chart-container {
   
@@ -272,10 +284,10 @@ main {
   &__head {
     background-color: $primary;
     color: var(--white);
-    font-size: 1.25rem;
+    font-size: 1.4rem;
     font-family: var(--font-heading);
     font-weight: 500;
-    padding: 1rem 1rem 1rem 0;
+    padding: .5rem 1rem .5rem 0;
     text-align: right;
 
     &:first-child {
@@ -293,8 +305,12 @@ main {
     border-bottom: solid 1px $primary;
     color: $primary;
     font-size: 1.5rem;
-    padding: 1rem 1rem 1rem 0;
+    padding: .5rem 1rem .5rem 0;
     text-align: right;
+
+    &:last-child {
+      font-weight: 700;
+    }
   }
 
 }
@@ -312,22 +328,27 @@ main {
 //Footer Section
 
 .footer {
-  display: flex;
-  flex-direction: column;
+  
   padding: 2rem 2rem;
   background: $primary;
-  color: white;
+  
+&__container {
+  
 }
 
-.footer-main {
+&__links {
+  width: 100%;
+  
   display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+&__navbar {
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
   padding-bottom: 1rem;
-
-
-  &__container {
-    margin-right: 3rem;
-
 
     h4 {
       font-size: 1.5rem;
@@ -349,66 +370,24 @@ main {
           font-family: var(--font-heading);
           text-decoration: none;
           color: white;
+          transition: all .2s linear;
 
           &:hover {
             color: lighten($primary, 40%);
-            transition: all .2s ease-in;
+            
+            text-decoration: underline;
           }
         }
       }
     }
   }
-
-  &__brad {
-    font-size: 1.5rem;
-    color: lighten($primary, 40%);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    padding: 1.5rem 0;n
-
-    h4 {
-      font-size: 1.25rem;
-      font-weight: 500;
-      font-family: var(--font-heading);
-      width: 12rem;
-    }
-
-    ul {
-      display: inline-block;
-      padding-left: 1rem;
-      list-style: none;
-      width: 18rem;
-
-      li {
-        padding-left: 1rem;
-        font-size: 1.25rem;
-        display: inline-block;
-
-        a {
-          font-family: var(--font-body);
-          color: white;
-          font-size: 1.5rem;
-          text-decoration: none;
-
-          &:hover {
-            color: lighten($primary, 50%);
-            transition: all .2s ease-in;
-          }
-
-          i {
-            padding-right: .5rem;
-          }
-        }
-      }
-    }
-  }
-
 }
 
+
+
+
 .copyright {
+  color: #ffffff;
   border-top: solid .1px lighten($primary, 20%);
   font-size: 1.25rem;
   padding-top: 2rem;
@@ -421,28 +400,39 @@ main {
 
 @media only screen and (min-width: $tablet) {
 
+  .header {
+    padding-left: 10rem;
+  }
+
   .main {
     display: flex;
     height: 100%;
+    
   }
 
   .section {
-    padding: 3rem 3rem;
+   padding: 3rem;
 
     &--inputs {
       background-color: var(--grey-light);
       flex: 1 35rem;
-      max-width: 50rem;
-     
+      max-width: 80rem;
+      padding-left: 10rem;
+      padding-right: 5rem;
+
     }
 
     &--results {
-      margin: 0 auto;
+      // margin: 0 auto;
       height: 100%;
       background-color: white;
       flex: 3 70rem;
-      min-width: 0;
-      max-width: 100rem;
+      padding-left: 5rem;
+      padding-right: 20rem;
+
+    //  margin-right: 30rem;
+      
+      
     }
 
     &__subHeading {
@@ -454,7 +444,9 @@ main {
     }
   }
 
-
+.footer {
+  padding: 2rem 10rem;
+}
 
 
 
