@@ -105,7 +105,7 @@ main {
 
   &__heading {
     font-size: 2rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
     color: darken($primary, 10%);
     font-family: var(--font-heading);
   }
@@ -155,6 +155,7 @@ main {
     font-family: var(--font-heading);
     font-weight: 700;
     color: var(--primary-darkest);
+    ;
   }
 
   &__box {
@@ -165,10 +166,13 @@ main {
     border-radius: var(--radius);
     margin-top: .5rem;
     padding: 1.25rem;
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: 500;
     font-family: var(--font-body);
     width: 100%;
+    outline: none;
+    //  -webkit-appearance: none;
+     
 
     &:active,
     &:focus {
@@ -176,6 +180,24 @@ main {
       border: solid 1px $primary;
     }
   }
+}
+
+.input__select {
+cursor: pointer;;
+display: flex;
+align-items: center;
+position: relative;
+
+i {
+  color: $primary;
+  position: absolute;
+  top: 2px;
+  left: 330px;
+  font-size: 3rem;
+  
+}
+
+
 }
 
 .btn {
@@ -240,18 +262,19 @@ main {
 
 
   &__title {
-    font-size: 1.75rem;
+    font-size: 1.8rem;
     font-weight: 500;
     color: var(--primary-darkest);
 
     &--total {
       @extend .outcome__title;
-      font-size: 2rem;
+      font-size: 2.5rem;
+      font-weight: 700;
     }
   }
 
   &__value {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     padding-left: 1rem;
     font-family: var(--font-body);
     color: lighten($primary, 20%);
@@ -259,6 +282,7 @@ main {
     &--total {
       @extend .outcome__value;
       font-weight: 700;
+      font-size: 2.5rem;
     }
   }
 
@@ -401,7 +425,7 @@ main {
 @media only screen and (min-width: $tablet) {
 
   .header {
-    padding-left: 10rem;
+    padding-left: 2rem;
   }
 
   .main {
@@ -417,8 +441,8 @@ main {
       background-color: var(--grey-light);
       flex: 1 35rem;
       max-width: 80rem;
-      padding-left: 10rem;
-      padding-right: 5rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
 
     }
 
@@ -428,7 +452,7 @@ main {
       background-color: white;
       flex: 3 70rem;
       padding-left: 5rem;
-      padding-right: 20rem;
+      padding-right: 10rem;
 
     //  margin-right: 30rem;
       

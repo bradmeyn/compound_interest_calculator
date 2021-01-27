@@ -180,6 +180,7 @@ let compound = () => {
   document.getElementById("value-outcome").innerHTML = formatCurrency(totalValue.toFixed(0));
   document.getElementById("interest-outcome").innerHTML = formatCurrency(totalEarnings.toFixed(0));
   document.getElementById("contributions-outcome").innerHTML = formatCurrency(totalContributions.toFixed(0));
+  document.getElementById("initial-outcome").innerHTML = startingAmount.value;
   document.getElementById("years-outcome").innerHTML = `after ${n} years:`;
 
 
