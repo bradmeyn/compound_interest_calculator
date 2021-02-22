@@ -277,14 +277,14 @@ let chart = new Chart(ctx, {
         ticks: {
           maxTicksLimit: 5,
           beginAtZero: true,
-          fontSize: 16,
+          fontSize: 12,
           fontFamily: "Roboto Condensed",
           
         
           callback: function (value, index, values) {
             if (parseInt(value) >= 1000) {
               return (
-                numeral(value).format("$0,0")
+                numeral(value).format("$0a")
                 // "$" + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
               );
             } else {
@@ -298,7 +298,8 @@ let chart = new Chart(ctx, {
       display: true,
       labels : {
           fontSize: 14,
-      fontFamily: "Roboto Condensed",
+          fontFamily: "Roboto Condensed",
+         
       },
       
     },
@@ -306,24 +307,25 @@ let chart = new Chart(ctx, {
 
     },
     tooltips: {
+      // displayColors: false,
       yAlign: "bottom",
 
       callbacks: {
-        
-        label: function(tooltipItems, data) { 
-                        return formatCurrency(tooltipItems.yLabel);
-                    },
-
         title: function (tooltip, data) {
-          return "Year " +tooltip[0].label ;
+          return `After ${tooltip[0].label} Years`;
           },
-          },
-          
-          titleAlign: "center",
+
+                    label: function(tooltipItems, data) { 
+                        return `    ${data.datasets[tooltipItems.datasetIndex].label}:  ${formatCurrency(tooltipItems.value)}`;
+                    },
+                    
+                      },
+      
+          // bodyAlign: "center",
           titleFontSize: 15,
           titleMarginBottom: 10,
           bodySpacing: 10,
-          bodyFontSize: 15,
+          bodyFontSize: 12,
           mode: "x",
           xPadding: 10,
           yPadding: 10,
