@@ -214,7 +214,7 @@ Chart.scaleService.updateScaleDefaults("linear", {
 
 let chart = new Chart(ctx, {
   // The type of chart we want to create
-
+ 
   type: "bar",
 
   // The data for our dataset
@@ -222,21 +222,22 @@ let chart = new Chart(ctx, {
     datasets: [{
         label: "Initial Investment",
         data: [],
-        backgroundColor: "#683141",
+        backgroundColor: "#224970",
         width: "100%",
+        
 
       },
       {
         label: "Contribution",
         data: [],
-        backgroundColor: "#B35E78",
+        backgroundColor: "#4186cc",
         width: "100%",
         fontSize: 14,
       },
       {
         label: "Interest Earned",
         data: [],
-        backgroundColor: "#D9AEBB",
+        backgroundColor: "#93c8fc",
         width: "100%",
         
       },
@@ -255,7 +256,7 @@ let chart = new Chart(ctx, {
       xAxes: [{
         ticks: {
           fontSize: 16,
-          fontFamily: "Roboto Condensed"
+          fontFamily: "Inter"
         },
         
         gridLines: {
@@ -265,7 +266,7 @@ let chart = new Chart(ctx, {
           display: true,
           labelString: 'Year',
           fontSize: 16,
-          fontFamily: "Roboto Condensed"
+          fontFamily: "Inter"
         },
         stacked: true,
       }],
@@ -278,8 +279,8 @@ let chart = new Chart(ctx, {
           maxTicksLimit: 5,
           beginAtZero: true,
           fontSize: 12,
-          fontFamily: "Roboto Condensed",
-          
+          fontFamily: "Inter",
+          fontWeight: "300",
         
           callback: function (value, index, values) {
             if (parseInt(value) >= 1000) {
@@ -297,8 +298,10 @@ let chart = new Chart(ctx, {
     legend: {
       display: true,
       labels : {
-          fontSize: 14,
-          fontFamily: "Roboto Condensed",
+          fontSize: 16,
+          fontFamily: "Inter",
+          fontWeight: "300",
+
          
       },
       

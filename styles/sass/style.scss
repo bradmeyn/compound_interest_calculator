@@ -14,22 +14,18 @@
   --radius: 5px;
   --shadow-card: 0 2px 4px rgba(0, 0, 0, 0.25);
 
-  --font-heading: 'Roboto', sans-serif;
-  --font-body: "Roboto Condensed", sans-serif;
+  --font-heading: 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
 
   --content-width: 130rem;
 
 }
 
-$primary: #7a3a4d;
+$primary: #224970;
 
-$light:#cf7b95;
+$light: #4186cc;
 
-$dark:#b96e85;
-
-$secondary: #1c286e;
-
-$tertiary: #328143;
+$vlight: #93c8fc;
 
 $phone: 640px;
 $tablet: 768px;
@@ -68,7 +64,8 @@ body {
 
 .header {
   background-color: $primary;
-  padding: 2rem 3rem;
+
+  padding: 1.5rem 3rem;
 
   &__content {
     display: flex;
@@ -78,8 +75,8 @@ body {
 
   &__title {
     color: white;
-    font-size: 2.5rem;
-    font-weight: 500;
+    font-size: 2rem;
+    font-weight: 300;
     display: inline;
     font-family: var(--font-heading);
   }
@@ -96,7 +93,8 @@ body {
 //sections
 
 main {
-  min-height: 75vh;
+  min-height: 100vh;
+ 
 }
 
 .section {
@@ -104,7 +102,8 @@ main {
   width: 100%;
 
   &__heading {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    font-weight: 400;
     margin-bottom: 2.5rem;
     color: darken($primary, 10%);
     font-family: var(--font-heading);
@@ -151,15 +150,14 @@ main {
   }
 
   &__label {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-family: var(--font-heading);
     font-weight: 700;
-    color: var(--primary-darkest);
-    ;
+    color: #2f2f30;
   }
 
   &__box {
-    color: lighten($primary, 20%);
+    color: #2f2f30;
     background-color: white;
     border: solid 1px white;
     display: block;
@@ -167,7 +165,7 @@ main {
     margin-top: .5rem;
     padding: 1.25rem;
     font-size: 1.6rem;
-    font-weight: 500;
+    font-weight: 400;
     font-family: var(--font-body);
     width: 100%;
     outline: none;
@@ -188,16 +186,14 @@ display: flex;
 align-items: center;
 position: relative;
 
-i {
-  color: $primary;
-  position: absolute;
-  top: 2px;
-  left: 330px;
-  font-size: 3rem;
-  
-}
-
-
+  i {
+    color: $primary;
+    position: absolute;
+    top: 2px;
+    left: 330px;
+    font-size: 3rem;
+    
+  }
 }
 
 .btn {
@@ -237,34 +233,28 @@ i {
   position: relative;
   margin: 0 auto;
   
-  
-
   &.open {
     max-height: 200rem;
   }
 
   &__container {
     margin: 0 auto;
-    // width: 40rem;
-    // border: solid 1px red;
   }
 
 }
 
 .outcome {
-  
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: solid .1px lighten($primary, 40%);
+  border-bottom: solid .1px var(--grey);
   margin-bottom: 2rem;
-  padding-bottom: .25rem;
-
+  padding-bottom: .5rem;
 
   &__title {
     font-size: 1.8rem;
     font-weight: 500;
-    color: var(--primary-darkest);
+    color: var(--grey-darkest);
 
     &--total {
       @extend .outcome__title;
@@ -274,24 +264,27 @@ i {
   }
 
   &__value {
-    font-size: 1.8rem;
+    font-size: 2rem;
     padding-left: 1rem;
     font-family: var(--font-body);
-    color: lighten($primary, 20%);
+    color: var(--grey-darkest);
 
     &--total {
+      color: $primary;
       @extend .outcome__value;
       font-weight: 700;
       font-size: 2.5rem;
     }
   }
 
+  &__chart {
+    
+  }
+
 }
 
-
-
 .chart-container {
-  
+ 
   padding: 3rem 0;
   position: relative;
   margin: auto;
@@ -302,7 +295,7 @@ i {
   overflow: hidden;
   border-collapse: collapse;
   width: 100%;
-  border-radius: var(--radius);
+  
   margin-bottom: 3rem;
 
   &__head {
@@ -311,26 +304,22 @@ i {
     font-size: 1.4rem;
     font-family: var(--font-heading);
     font-weight: 500;
-    padding: .5rem 1rem .5rem 0;
+    padding: .5rem 1rem;
     text-align: right;
-
-    &:first-child {
-      border-top-left-radius: var(--radius);
-    }
-
-    &:last-child {
-      border-top-right-radius: var(--radius);
-    }
-
   }
 
   &__item {
     font-family: var(--font-body);
-    border-bottom: solid 1px $primary;
-    color: $primary;
+    border-bottom: solid 2px var(--grey-light);
+    color: var(--grey-slate);
     font-size: 1.5rem;
-    padding: .5rem 1rem .5rem 0;
+    padding: .5rem 1rem;
     text-align: right;
+
+    &:first-child {
+      text-align: center;
+      font-weight: 700;
+    }
 
     &:last-child {
       font-weight: 700;
@@ -352,9 +341,8 @@ i {
 //Footer Section
 
 .footer {
-  
   padding: 2rem 2rem;
-  background: $primary;
+  background: var(--grey-slate);
   
 &__container {
   
@@ -412,7 +400,7 @@ i {
 
 .copyright {
   color: #ffffff;
-  border-top: solid .1px lighten($primary, 20%);
+  border-top: solid .1px var(--grey-dark);
   font-size: 1.25rem;
   padding-top: 2rem;
   width: 100%;
@@ -451,8 +439,7 @@ i {
       height: 100%;
       background-color: white;
       flex: 3 70rem;
-      padding-left: 5rem;
-      padding-right: 10rem;
+      ;
 
     //  margin-right: 30rem;
       
