@@ -202,6 +202,7 @@ button.addEventListener("click", compound);
 //bar chart
 
 let ctx = document.getElementById("main-chart");
+ctx.height = 150;
 Chart.defaults.global.defaultFontColor = "#434d56";
 
 
@@ -246,6 +247,7 @@ let chart = new Chart(ctx, {
 
   // Configuration options go here
   options: {
+    maintainAspectRatio: false,
     responsive: true,
     maintainAspectRatio: true,
     legend: {
