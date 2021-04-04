@@ -204,7 +204,7 @@ button.addEventListener("click", compound);
 let ctx = document.getElementById("main-chart");
 Chart.defaults.global.defaultFontColor = "#434d56";
 
-Chart.defaults.global.defaultFontStyle = "bold";
+
 
 Chart.scaleService.updateScaleDefaults("linear", {
   ticks: {
@@ -276,7 +276,7 @@ let chart = new Chart(ctx, {
         
         stacked: true,
         ticks: {
-          maxTicksLimit: 5,
+          maxTicksLimit: 10,
           beginAtZero: true,
           fontSize: 12,
           fontFamily: "Inter",
@@ -296,13 +296,14 @@ let chart = new Chart(ctx, {
       }, ],
     },
     legend: {
+      
       display: true,
       labels : {
-          fontSize: 16,
+          fontSize: 14,
           fontFamily: "Inter",
           fontWeight: "300",
+          boxWidth: 16,
 
-         
       },
       
     },
