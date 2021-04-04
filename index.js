@@ -202,7 +202,8 @@ button.addEventListener("click", compound);
 //bar chart
 
 let ctx = document.getElementById("main-chart");
-ctx.height = 150;
+ctx.height = 320;
+
 Chart.defaults.global.defaultFontColor = "#434d56";
 
 
@@ -245,14 +246,17 @@ let chart = new Chart(ctx, {
     ],
   },
 
-  // Configuration options go here
+ 
   options: {
+    
+  
     maintainAspectRatio: false,
     responsive: true,
-    maintainAspectRatio: true,
+    
     legend: {
       display: true,
-      position: "bottom"
+      position: "bottom",
+      padding: 10
     },
     scales: {
       xAxes: [{
@@ -278,11 +282,13 @@ let chart = new Chart(ctx, {
         
         stacked: true,
         ticks: {
+        
           maxTicksLimit: 10,
           beginAtZero: true,
           fontSize: 12,
           fontFamily: "Inter",
           fontWeight: "300",
+          padding: 10,
         
           callback: function (value, index, values) {
             if (parseInt(value) >= 1000) {
