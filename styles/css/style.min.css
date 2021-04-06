@@ -118,21 +118,21 @@ main {
 }
 
 .input__label {
-  font-size: 1.6rem;
-  font-family: var(--font-heading);
-  font-weight: 700;
+  font-size: 1.4rem;
+  font-family: var(--font-body);
+  font-weight: 500;
   color: #2f2f30;
 }
 
 .input__box, .input__box--select {
-  color: #2f2f30;
+  color: #224970;
   background-color: white;
   border: solid 1px white;
   display: block;
   border-radius: var(--radius);
   margin-top: .5rem;
   padding: 1.25rem;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: 400;
   font-family: var(--font-body);
   width: 100%;
@@ -178,9 +178,9 @@ main {
   cursor: pointer;
   box-shadow: var(--shadow-card);
   background-color: #224970;
-  font-family: var(--font-heading);
-  font-size: 2rem;
-  font-weight: 500;
+  font-family: var(--font-body);
+  font-size: 2.2rem;
+  font-weight: 400;
   color: white;
 }
 
@@ -286,7 +286,7 @@ main {
 }
 
 .assumptions {
-  line-height: 1.75rem;
+  line-height: 1.75;
 }
 
 .assumptions__item {
