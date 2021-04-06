@@ -170,8 +170,17 @@ main {
     font-family: var(--font-body);
     width: 100%;
     outline: none;
-    //  -webkit-appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    
+    // appearance: none;
      
+    &--select{
+@extend .input__box;
+background: #ffffff url(/down-arrow.png) no-repeat 98% 50%;
+
+
+    }
 
     &:active,
     &:focus {
@@ -182,10 +191,15 @@ main {
 }
 
 .input__select {
-cursor: pointer;;
+ 
+cursor: pointer;
 display: flex;
 align-items: center;
 position: relative;
+-moz-appearance: none;
+    -webkit-appearance: none;
+//     appearance: none;
+   
 
   i {
     color: $primary;
