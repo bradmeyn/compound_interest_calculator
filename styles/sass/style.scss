@@ -65,7 +65,7 @@ body {
 .header {
   background-color: $primary;
 
-  padding: 1rem 3rem;
+  padding: 2rem 3rem;
 
   &__content {
     display: flex;
@@ -98,7 +98,7 @@ main {
 }
 
 .section {
-  padding: 3rem;
+  padding: 4rem 6rem;
   width: 100%;
 
   &__heading {
@@ -123,7 +123,7 @@ main {
     font-size: 1.5rem;
     margin-bottom: 1rem;
     width: 100%;
-    color: var(--primary-darkest);
+    color: var(--primary-dark);
     font-family: var(--font-heading);
   }
 }
@@ -247,6 +247,7 @@ position: relative;
   transition: all 2s ease-out;
   position: relative;
   margin: 0 auto;
+  max-width: 80rem;
   
   &.open {
     max-height: 200rem;
@@ -265,15 +266,17 @@ position: relative;
   border-bottom: solid .1px var(--grey);
   margin-bottom: 2rem;
   padding-bottom: .5rem;
+  
 
   &__title {
     font-size: 1.8rem;
-    font-weight: 500;
+    font-weight: 300;
     color: var(--grey-darkest);
 
     &--total {
       @extend .outcome__title;
-      font-size: 2.5rem;
+      color: $light;
+      font-size: 2.25rem;
       font-weight: 500;
     }
   }
@@ -285,10 +288,10 @@ position: relative;
     color: var(--grey-darkest);
 
     &--total {
-      color: $primary;
+      color: $light;
       @extend .outcome__value;
-      font-weight: 700;
-      font-size: 2.5rem;
+      font-weight: 500;
+      font-size: 2.25rem;
     }
   }
 
@@ -311,6 +314,7 @@ position: relative;
   border-collapse: collapse;
   width: 100%;
   
+  
   margin-bottom: 3rem;
 
   &__head {
@@ -319,7 +323,7 @@ position: relative;
     font-size: 1.2rem;
     font-family: var(--font-heading);
     font-weight: 500;
-    padding: 1rem .5rem;
+    padding: 1rem;
     text-align: center;
   }
 
@@ -328,8 +332,11 @@ position: relative;
     border-bottom: solid 2px var(--grey-light);
     color: var(--grey-slate);
     font-size: 1.3rem;
-    padding: 1rem .5rem;
+    padding: 1rem;
+    margin-right: 1.5rem;
+    
     text-align: right;
+    
 
     &:first-child {
       text-align: center;
@@ -344,11 +351,24 @@ position: relative;
 }
 
 .assumptions {
-  line-height: 1.75;
+  line-height: 1.4;
+  max-width: 80rem;
+  width: 100%;
+ 
+  margin: 0 auto;
+
+  &__heading {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    color: var(--primary-dark);
+    font-family: var(--font-heading);
+  }
+
 
   &__item {
     font-size: 1.5rem;
-    padding-bottom: 1rem;
+    margin-bottom: 1.2rem;
   }
 }
 
@@ -356,7 +376,7 @@ position: relative;
 //Footer Section
 
 .footer {
-  padding: 2rem 2rem;
+  padding: 3rem 6rem;
   background: var(--grey-slate);
   
 &__container {
@@ -376,6 +396,8 @@ position: relative;
   flex-direction: column;
   justify-content: space-between;
   padding-bottom: 1rem;
+  
+  width: 100%;
 
     h4 {
       font-size: 1.5rem;
@@ -388,10 +410,12 @@ position: relative;
     ul {
       padding: 0;
       list-style: none;
+      display: flex;
+     
 
       li {
-        font-size: 1.5rem;
-        margin-bottom: .5rem;
+        font-size: 1.25rem;
+        padding-right: 4rem;
 
         a {
           font-family: var(--font-heading);
@@ -454,8 +478,7 @@ position: relative;
       height: 100%;
       background-color: white;
       flex: 3 70rem;
-      ;
-
+      padding: 3rem 5rem;
     //  margin-right: 30rem;
       
       
