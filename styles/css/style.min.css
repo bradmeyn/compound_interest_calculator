@@ -43,7 +43,7 @@ body {
 /* navbar */
 .header {
   background-color: #224970;
-  padding: 2rem 3rem;
+  padding: 2rem 2rem;
 }
 
 .header__content {
@@ -71,7 +71,7 @@ main {
 }
 
 .section {
-  padding: 4rem 6rem;
+  padding: 4rem 3rem;
   width: 100%;
 }
 
