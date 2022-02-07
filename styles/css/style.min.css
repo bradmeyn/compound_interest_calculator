@@ -10,8 +10,8 @@
   --grey-darkest: #434d56;
   --radius: 5px;
   --shadow-card: 0 2px 4px rgba(0, 0, 0, 0.25);
-  --font-heading: 'Inter', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-heading: "Inter", sans-serif;
+  --font-body: "Inter", sans-serif;
   --content-width: 130rem;
 }
 
@@ -130,7 +130,7 @@ main {
   border: solid 1px white;
   display: block;
   border-radius: var(--radius);
-  margin-top: .5rem;
+  margin-top: 0.5rem;
   padding: 1.25rem;
   font-size: 1.8rem;
   font-weight: 400;
@@ -217,7 +217,7 @@ main {
   align-items: center;
   border-bottom: solid 0.1px var(--grey);
   margin-bottom: 2rem;
-  padding-bottom: .5rem;
+  padding-bottom: 0.5rem;
 }
 
 .outcome__title, .outcome__title--total {
@@ -351,7 +351,7 @@ main {
   font-family: var(--font-heading);
   text-decoration: none;
   color: white;
-  transition: all .2s linear;
+  transition: all 0.2s linear;
 }
 
 .footer__navbar ul li a:hover {
@@ -361,9 +361,7 @@ main {
 
 .copyright {
   color: #ffffff;
-  border-top: solid 0.1px var(--grey-dark);
   font-size: 1.25rem;
-  padding-top: 2rem;
   width: 100%;
   text-align: center;
 }
